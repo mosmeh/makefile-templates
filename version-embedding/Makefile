@@ -1,8 +1,8 @@
 TARGET  := foo
 OBJS    := foo.o version.o
-VERSION := $(shell cat VERSION 2> /dev/null)
-COMMIT  := $(shell git describe --always --tags --dirty 2> /dev/null)
-VFLAGS  := $(if $(VERSION),-DFOO_VERSION=\"$(VERSION)\") \
+VERSION  = $(shell cat VERSION 2> /dev/null)
+COMMIT   = $(shell git describe --always --tags --dirty 2> /dev/null)
+VFLAGS   = $(if $(VERSION),-DFOO_VERSION=\"$(VERSION)\") \
 	$(if $(COMMIT),-DFOO_COMMIT=\"$(COMMIT)\")
 
 .PHONY: all clean
